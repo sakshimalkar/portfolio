@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshi Malkar - Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 240, 208, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00f0d0;
+            text-decoration: none;
+        }
+		/* Animate existing navbar text without moving layout */
+.logo {
+    display: inline-block;
+    animation: subtleSlideUp 3s ease-in-out infinite;
+}
+
+/* Very subtle bottom-to-top animation */
+@keyframes subtleSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #00f0d0;
+        }
+
+        .hire-btn {
+            background: linear-gradient(135deg, #00f0d0, #00d4aa);
+            color: #0a0e27;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+			font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hire-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 240, 208, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 208, 0.15), transparent);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            color: #00f0d0;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #00f0d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .highlight {
+            color: #00f0d0;
+        }
+		.hero h1 {
+    display: inline-block;
+    animation: introSlideUp 3s ease-in-out infinite;
+}
+
+/* Clean, minimal animation */
+@keyframes introSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+		
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00f0d0, #00d4aa);
+            color: #0a0e27;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 240, 208, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00f0d0;
+            color: #00f0d0;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 240, 208, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(0, 240, 208, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00f0d0;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: #00f0d0;
+            color: #0a0e27;
+            transform: translateY(-5px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: #00f0d0;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+		/* Animate existing navbar text without moving layout */
+.section-title {
+    display: inline-block;
+    animation: subtleSlideUp 3s ease-in-out infinite;
+}
+
+/* Very subtle bottom-to-top animation */
+@keyframes subtleSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+
+        .section-title .highlight {
+            color: #00f0d0;
+        }
+
+/* Animate existing navbar text without moving layout */
+. section-title .highlight {
+    display: inline-block;
+    animation: subtleSlideUp 3s ease-in-out infinite;
+}
+
+/* Very subtle bottom-to-top animation */
+@keyframes subtleSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+        .section-desc {
+            color: #9ca3af;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 240, 208, 0.1);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: #00f0d0;
+            box-shadow: 0 15px 40px rgba(0, 240, 208, 0.2);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            color: #00f0d0;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: #9ca3af;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 240, 208, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: #00f0d0;
+            transform: translateY(-5px);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skill-percent {
+            color: #00f0d0;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00f0d0, #00d4aa);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .skill-type {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 240, 208, 0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #00f0d0;
+            box-shadow: 0 20px 50px rgba(0, 240, 208, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0, 240, 208, 0.1);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .project-desc {
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(0, 240, 208, 0.15);
+            color: #00f0d0;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Courses Section */
+        #courses {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 240, 208, 0.1);
+           
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: #00f0d0;
+        }
+
+.course-icon {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: rgba(0, 240, 208, 0.06);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.course-icon img {
+    width: 400px;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+}
+
+/* Mobile safety */
+@media (max-width: 768px) {
+    .course-icon {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+
+        .course-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.course-platform {
+    color: #00f0d0;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.course-desc {
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+       .course-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 240, 208, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 240, 208, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00f0d0;
+            font-size: 1.3rem;
+        }
+
+        .contact-details h4 {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details p {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.7rem;
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 240, 208, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            color: #fff;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00f0d0;
+            box-shadow: 0 0 20px rgba(0, 240, 208, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #00f0d0, #00d4aa);
+            color: #0a0e27;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 240, 208, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 240, 208, 0.1);
+        }
+
+        footer p {
+            color: #9ca3af;
+        }
+
+        .heart {
+            color: #00f0d0;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Portfolio</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="hire-btn" onclick="location.href='#contact'">Hire Me</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tag">Available for Freelance</p>
+            <h1>Hi, I'm <span class="highlight">Sakshi Malkar</span></h1>
+            <p class="hero-subtitle">Full Stack Developer</p>
+            <p class="hero-description">
+                I craft beautiful, performant web applications with modern technologies.
+                Passionate about clean code, great UX, and solving complex problems.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/sakshimalkar" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sakshi-malkar/" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                </a>
+                <a href="mailto:sakshimalkar286@gmail.com">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header fade-in">
+            <p class="section-tag">ABOUT ME</p>
+            <h2 class="section-title">Turning Ideas Into <span class="highlight">Digital Reality</span></h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>I am a Entry-Level Full Stack Developer and BCA graduate with hands-on professional training from SevenMentor, Pune. I have experience building responsive, scalable web applications with a strong focus on clean UI design and reliable backend architecture.</p>
+                <p>My technical expertise includes HTML, CSS JS, React & Bootstrap for frontend development and PHP, and MySQL for backend systems. I focus on writing maintainable code, implementing secure data handling, and delivering performance-optimized applications & Rest API Integration.</p>
+                <p>I actively upskill by exploring new technologies, contributing to real-world projects, and strengthening problem-solving and system design skills to meet industry standards.</p>
+            </div>
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <h3>Entry Level</h3>
+                    <p>Fresher</p>
+                </div>
+                <div class="stat-card">
+                    <h3>10+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h3>10+</h3>
+                    <p>Certifications</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Dedication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header fade-in">
+            <p class="section-tag">MY SKILLS</p>
+            <h2 class="section-title">Technologies I <span class="highlight">Work With</span></h2>
+            <p class="section-desc">I'm constantly learning and expanding my toolkit. Here are the technologies I use to bring ideas to life.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">HTML</span>
+                    <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+                <span class="skill-type">Frontend</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">CSS</span>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+                <span class="skill-type">Frontend</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                </div>
+                <span class="skill-type">Frontend</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">React.js</span>
+                    <span class="skill-percent">68%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 68%"></div>
+                </div>
+                <span class="skill-type">Frontend</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">Bootstrap</span>
+                    <span class="skill-percent">60%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 60%"></div>
+                </div>
+                <span class="skill-type">Frontend</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-percent">65%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 65%"></div>
+                </div>
+                <span class="skill-type">Backend</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">MySQL</span>
+                    <span class="skill-percent">50%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 50%"></div>
+                </div>
+                <span class="skill-type">Database</span>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-header">
+                    <span class="skill-name">PHP</span>
+                    <span class="skill-percent">40%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 40%"></div>
+                </div>
+                <span class="skill-type">Backend</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header fade-in">
+            <p class="section-tag">MY WORK</p>
+            <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+            <p class="section-desc">Here are some of my recent projects that showcase my skills and expertise in building modern web applications.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <img src="D:\portfolio\img\music.png" alt="Music Streaming Platform" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Music Streaming Platform</h3>
+                    <p class="project-desc">Developed a web-based music streaming application with user authentication, artist selection, and playback speed control (0.5x, 1x, 2x). Designed responsive UI and performed functional testing.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <img src="D:\portfolio\img\homepage e.png" alt="E-Learning Platform" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">E-Learning Platform</h3>
+                    <p class="project-desc">Built an interactive learning platform providing access to study materials, videos, quizzes, and courses. Managed user registration, profiles, course enrollment, and progress tracking with certificate generation.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <img src="D:\portfolio\img\shop.png" alt="Shopping Cart UI" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Shopping Cart UI</h3>
+                    <p class="project-desc">Designed a multi-category shopping interface with product filtering, search, and wishlist features. Implemented responsive UI components, rounded category buttons, and dropdown menus following UI/UX best practices.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+			<div class="project-card fade-in">
+                <img src="D:\portfolio\img\resto.png" alt="restaurant-website" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Restaurant-Website</h3>
+                    <p class="project-desc">Developed a responsive restaurant website using React and Bootstrap, featuring a modern UI, menu sections & Reserve seats, and smooth navigation for an improved user experience.</p>
+                    <div class="project-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Bootstrap</span>
+            
+                    </div>
+                </div>
+            </div>
+			<div class="project-card fade-in">
+                <img src="D:\portfolio\img\netfilx.png" alt="netflix" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Netflix</h3>
+                    <p class="project-desc">Built a Netflix-inspired web application using React, featuring a responsive layout, movie browsing interface, List of Movies & Live link and dynamic UI components.</p>
+                    <div class="project-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Bootstrap</span>
+
+                    </div>
+                </div>
+            </div>
+			<div class="project-card fade-in">
+                <img src="D:\portfolio\img\link.png" alt="link access" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Link Access</h3>
+                    <p class="project-desc">Developed a link access system where users complete a payment and verify their email before gaining access to restricted links or content.</p>
+                    <div class="project-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Bootstrap</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="section-header fade-in">
+            <p class="section-tag">CONTINUOUS LEARNING</p>
+            <h2 class="section-title">Courses & <span class="highlight">Certifications</span></h2>
+            <p class="section-desc">I believe in continuous learning. Here are some of the courses and certifications I've completed to stay current with industry trends.</p>
+        </div>
+        <div class="courses-grid">
+
+        <div class="course-card">
+            <div class="course-icon">
+                <img src="img/web dev.png" alt="SevenMentor">
+            </div>
+            <h3 class="course-title">Web Development</h3>
+            <p class="course-platform">SevenMentor, Pune</p>
+            <p class="course-desc">
+                Hands-on experience in HTML5, CSS3, and JavaScript for building responsive frontend UI.
+            </p>
+            <div class="course-meta">
+                <span>Jun 2025 – Sep 2025</span>
+                <span>3 Months</span>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <img src="img/micro azure fun.png" alt="Microsoft Azure">
+            </div>
+            <h3 class="course-title">Azure Fundamentals</h3>
+            <p class="course-platform">Microsoft</p>
+            <p class="course-desc">
+                Deployed and secured web applications using Azure App Services.
+            </p>
+            <div class="course-meta">
+                <span>Feb 2025 – Mar 2025</span>
+                <span>Online</span>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <img src="img/technology.png" alt="Deloitte Forage">
+            </div>
+            <h3 class="course-title">Deloitte Technology Simulation</h3>
+            <p class="course-platform">Forage</p>
+            <p class="course-desc">
+                Hands-on simulation with development tasks and dashboard planning.
+            </p>
+            <div class="course-meta">
+                <span>Dec 2025</span>
+                <span>Simulation</span>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <img src="img/skillup genAI.png" alt="BCG GenAI">
+            </div>
+            <h3 class="course-title">Introduction To GenAI</h3>
+            <p class="course-platform">SkillUp</p>
+            <p class="course-desc">
+                Built AI-powered chatbot using Python and data analysis tools.
+            </p>
+            <div class="course-meta">
+                <span>Dec 2025</span>
+                <span>Simulation</span>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <img src="img/aws.png" alt="AWS">
+            </div>
+            <h3 class="course-title">AWS & DevOps Fundamentals</h3>
+            <p class="course-platform">SevenMentor, Pune</p>
+            <p class="course-desc">
+                Cloud Foundamental, CI/CD basics and deployment Wrokflow.
+            </p>
+            <div class="course-meta">
+                <span>Sep 2025</span>
+                <span>Training</span>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-icon">
+                <img src="img/java.png" alt="Java">
+            </div>
+            <h3 class="course-title">Java Programming</h3>
+            <p class="course-platform">Great Learning</p>
+            <p class="course-desc">
+                Core Java, OOP, and application development fundamentals.
+            </p>
+            <div class="course-meta">
+                <span>2024</span>
+                <span>Self-Paced</span>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header fade-in">
+            <p class="section-tag">GET IN TOUCH</p>
+            <h2 class="section-title">Let's Work <span class="highlight">Together</span></h2>
+            <p class="section-desc">Have a project in mind? I'd love to hear about it. Let's discuss how we can bring your ideas to life.</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info fade-in">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>sakshimalkar286@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p>+91 9022211896</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p>Pune, Maharashtra, IN</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form fade-in">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="your.email@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Project Inquiry" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Tell me about your project..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
+            <div class="social-links" style="margin-bottom: 1.5rem;">
+                <a href="https://github.com/sakshimalkar" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sakshi-malkar/" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                </a>
+                <a href="mailto:sakshimalkar286@gmail.com">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>© 2026 Made with <span class="heart">♥</span> by Sakshi Malkar</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Animate skill bars when they come into view
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.skill-progress');
+                    if (progressBar) {
+                        const width = progressBar.style.width;
+                        progressBar.style.width = '0%';
+                        setTimeout(() => {
+                            progressBar.style.width = width;
+                        }, 100);
+                    }
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            skillObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
