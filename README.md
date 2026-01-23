@@ -21,7 +21,6 @@ This portfolio highlights my frontend development skills, real-world projects, a
 🔗 **View Live Portfolio:**  
 https://sakshimalkar.github.io/portfolio/
 
-*(Replace USERNAME with your GitHub username after deployment)*
 
 ## 📂 Project Setup
 
