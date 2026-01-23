@@ -461,6 +461,35 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+         .skill-category {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tags .tag {
+    background: rgba(0, 240, 208, 0.15);
+    color: #00f0d0;
+    padding: 0.45rem 1.1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 240, 208, 0.25);
+    transition: all 0.3s ease;
+}
+
+.skill-tags .tag:hover {
+    background: #00f0d0;
+    color: #0a0e27;
+    transform: translateY(-2px);
+}
+
 
         .project-card {
             background: rgba(255, 255, 255, 0.05);
@@ -513,6 +542,28 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
+        .project-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.demo-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(135deg, #00f0d0, #00d4aa);
+    color: #0a0e27;
+    transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 240, 208, 0.35);
+}
 
         /* Courses Section */
         #courses {
@@ -793,8 +844,12 @@
             <h1>Hi, I'm <span class="highlight">Sakshi Malkar</span></h1>
             <p class="hero-subtitle">Full Stack Developer</p>
             <p class="hero-description">
-                I craft beautiful, performant web applications with modern technologies.
-                Passionate about clean code, great UX, and solving complex problems.
+               I hold a Bachelor of Computer Applications (BCA) from Shivaji University (2022–2025), with a CGPA of 7.30.
+               <br>I am a Full Stack Web Developer with experience in building responsive, pixel-accurate user 
+               interfaces using React, JavaScript, HTML5, CSS3, and Bootstrap, along with backend development 
+               using PHP and MySQL. I focus on developing end-to-end web applications by integrating frontend
+                interfaces with server-side logic and databases while following modern web standards and best 
+                practices.
             </p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -853,96 +908,68 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="section-header fade-in">
-            <p class="section-tag">MY SKILLS</p>
-            <h2 class="section-title">Technologies I <span class="highlight">Work With</span></h2>
-            <p class="section-desc">I'm constantly learning and expanding my toolkit. Here are the technologies I use to bring ideas to life.</p>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">HTML</span>
-                    <span class="skill-percent">90%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 90%"></div>
-                </div>
-                <span class="skill-type">Frontend</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">CSS</span>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 85%"></div>
-                </div>
-                <span class="skill-type">Frontend</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">JavaScript</span>
-                    <span class="skill-percent">70%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 70%"></div>
-                </div>
-                <span class="skill-type">Frontend</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">React.js</span>
-                    <span class="skill-percent">68%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 68%"></div>
-                </div>
-                <span class="skill-type">Frontend</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Bootstrap</span>
-                    <span class="skill-percent">60%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 60%"></div>
-                </div>
-                <span class="skill-type">Frontend</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Python</span>
-                    <span class="skill-percent">65%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 65%"></div>
-                </div>
-                <span class="skill-type">Backend</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">MySQL</span>
-                    <span class="skill-percent">50%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 50%"></div>
-                </div>
-                <span class="skill-type">Database</span>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">PHP</span>
-                    <span class="skill-percent">40%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 40%"></div>
-                </div>
-                <span class="skill-type">Backend</span>
+     <!-- Skills Section -->
+<section id="skills">
+    <div class="section-header fade-in">
+        <p class="section-tag">MY SKILLS</p>
+        <h2 class="section-title">Technical <span class="highlight">Skill Set</span></h2>
+        <p class="section-desc">
+            Technologies and tools I use to build scalable, responsive, and modern web applications.
+        </p>
+    </div>
+
+    <div class="skills-grid">
+
+        <!-- Frontend -->
+        <div class="skill-card fade-in">
+            <h3 class="skill-category">Frontend</h3>
+            <div class="skill-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript (ES6)</span>
+                <span class="tag">React.js</span>
+                <span class="tag">Bootstrap</span>
+                 <span class="tag">Flexbox</span>
+                <span class="tag">CSS Grid</span>
             </div>
         </div>
-    </section>
+
+        <!-- Styling -->
+        <div class="skill-card fade-in">
+            <h3 class="skill-category">Backend</h3>
+            <div class="skill-tags">
+                <span class="tag">PHP & MySql</span>
+                <span class="tag">CRUD Operation</span>
+                <span class="tag">Server-Side From Handling</span>
+               
+                
+            </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-card fade-in">
+            <h3 class="skill-category">Tools & WorkFlow</h3>
+            <div class="skill-tags">
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">VS Code</span>
+                <span class="tag">Netlify</span>
+            </div>
+        </div>
+
+        <!-- Basics -->
+        <div class="skill-card fade-in">
+            <h3 class="skill-category">APIs & Data Handling</h3>
+            <div class="skill-tags">
+                <span class="tag">REST APIs</span>
+                <span class="tag">JSON</span>
+                <span class="tag">API Integration</span>
+                <span class="tag">Deployment Basics</span>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -953,7 +980,7 @@
         </div>
         <div class="projects-grid">
             <div class="project-card fade-in">
-                <img src="D:\portfolio\img\Music.png" alt="Music Streaming Platform" class="project-image">
+                <img src="img/Music.png" alt="Music Streaming Platform" class="project-image">
                 <div class="project-content">
                     <h3 class="project-title">Music Streaming Platform</h3>
                     <p class="project-desc">Developed a web-based music streaming application with user authentication, artist selection, and playback speed control (0.5x, 1x, 2x). Designed responsive UI and performed functional testing.</p>
@@ -964,10 +991,13 @@
                         <span class="tag">PHP</span>
                         <span class="tag">MySQL</span>
                     </div>
+                    <div class="project-actions">
+                    <a href="https://sakshimalkar.github.io/music-platform/" target="_blank" class="demo-btn">Live Demo</a>
+                </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <img src="D:\portfolio\img\homepage e.png" alt="E-Learning Platform" class="project-image">
+                <img src="img/homepage e.png" alt="E-Learning Platform" class="project-image">
                 <div class="project-content">
                     <h3 class="project-title">E-Learning Platform</h3>
                     <p class="project-desc">Built an interactive learning platform providing access to study materials, videos, quizzes, and courses. Managed user registration, profiles, course enrollment, and progress tracking with certificate generation.</p>
@@ -978,10 +1008,13 @@
                         <span class="tag">PHP</span>
                         <span class="tag">MySQL</span>
                     </div>
+                    <div class="project-actions">
+                    <a href="https://sakshimalkar.github.io/E-Learning/" target="_blank" class="demo-btn">Live Demo</a>
+                </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <img src="D:\portfolio\img\shop.png" alt="Shopping Cart UI" class="project-image">
+                <img src="img/shop.png" alt="Shopping Cart UI" class="project-image">
                 <div class="project-content">
                     <h3 class="project-title">Shopping Cart UI</h3>
                     <p class="project-desc">Designed a multi-category shopping interface with product filtering, search, and wishlist features. Implemented responsive UI components, rounded category buttons, and dropdown menus following UI/UX best practices.</p>
@@ -990,10 +1023,13 @@
                         <span class="tag">CSS</span>
                         <span class="tag">JavaScript</span>
                     </div>
+                    <div class="project-actions">
+                    <a href="https://sakshimalkar.github.io/volera-react-ecommerce/" target="_blank" class="demo-btn">Live Demo</a>
+                </div>
                 </div>
             </div>
 			<div class="project-card fade-in">
-                <img src="D:\portfolio\img\resto.png" alt="restaurant-website" class="project-image">
+                <img src="img/resto.png" alt="restaurant-website" class="project-image">
                 <div class="project-content">
                     <h3 class="project-title">Restaurant-Website</h3>
                     <p class="project-desc">Developed a responsive restaurant website using React and Bootstrap, featuring a modern UI, menu sections & Reserve seats, and smooth navigation for an improved user experience.</p>
@@ -1002,10 +1038,13 @@
                         <span class="tag">Bootstrap</span>
             
                     </div>
+                    <div class="project-actions">
+                    <a href="https://sakshimalkar.github.io/Restaurant-Website/" target="_blank" class="demo-btn">Live Demo</a>
+                </div>
                 </div>
             </div>
 			<div class="project-card fade-in">
-                <img src="D:\portfolio\img\netfilx.png" alt="netflix" class="project-image">
+                <img src="img/netfilx.png" alt="netflix" class="project-image">
                 <div class="project-content">
                     <h3 class="project-title">Netflix</h3>
                     <p class="project-desc">Built a Netflix-inspired web application using React, featuring a responsive layout, movie browsing interface, List of Movies & Live link and dynamic UI components.</p>
@@ -1014,10 +1053,13 @@
                         <span class="tag">Bootstrap</span>
 
                     </div>
+                    <div class="project-actions">
+                    <a href="https://sakshi-movies.netlify.app/" target="_blank" class="demo-btn">Live Demo</a>
+                </div>
                 </div>
             </div>
 			<div class="project-card fade-in">
-                <img src="D:\portfolio\img\link.png" alt="link access" class="project-image">
+                <img src="img/link.png" alt="link access" class="project-image">
                 <div class="project-content">
                     <h3 class="project-title">Link Access</h3>
                     <p class="project-desc">Developed a link access system where users complete a payment and verify their email before gaining access to restricted links or content.</p>
@@ -1026,6 +1068,9 @@
                         <span class="tag">Bootstrap</span>
 
                     </div>
+                    <div class="project-actions">
+                    <a href="https://sakshimalkar.github.io/Link-Access/" target="_blank" class="demo-btn">Live Demo</a>
+                </div>
                 </div>
             </div>
         </div>
